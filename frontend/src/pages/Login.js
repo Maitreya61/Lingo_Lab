@@ -53,12 +53,14 @@ const Login = () => {
               className="register-input"
               placeholder="Email"
               onChange={(e) => setEmail(e.target.value)}
+              required={true}
             />
             <input
               type="password"
               className="register-input"
               placeholder="Password"
               onChange={(e) => setPassword(e.target.value)}
+              required={true}
             />
           </div>
           <button type="submit">Log in</button>
