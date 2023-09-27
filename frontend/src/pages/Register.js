@@ -7,7 +7,7 @@ const Register = () => {
   const [name , setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
+  //Posting to server for registration
    const onSubmit= async(e)=>{
     e.preventDefault();
     try{

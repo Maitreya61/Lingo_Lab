@@ -7,11 +7,13 @@ import axios from "axios";
 import Leaderboard from "../components/Leaderboard";
 
 const HomePage = () => {
-
+  //Using A Language token to track the current language Set
   const language = localStorage.getItem('language');
   const Language = language[0].toUpperCase() + language.substring(1);
+  //The Retrived Data is Set Here
   const [userData, setUserData] = useState({score:{}});
 
+  //Fetching The Data of the User
   useEffect(() => {
     const userID = localStorage.getItem('id');
     axios.get(`http://localhost:3001/api/users/${userID}`)
@@ -23,6 +25,7 @@ const HomePage = () => {
   
 
   const navigate = useNavigate();
+  //For Opening and Closing the Modals these are Used
   const [resetOpen, setResetIsOpen] = useState(false);
   const [logoutOpen, setLogOutOpen] = useState(false);
   const logout = ()=>{
@@ -47,6 +50,7 @@ const HomePage = () => {
       </div>
       <div className="homepage">
         <div>
+          {/* This is Modal for Reset Progress */}
           <Modal isOpen={resetOpen}>
             <div className="center" style={{ width: "100%", height: "100%" }}>
               <div>
@@ -71,6 +75,7 @@ const HomePage = () => {
           </Modal>
         </div>
         <div>
+          {/* This is Modal for Logout screen */}
           <Modal isOpen={logoutOpen}>
             <div className="center" style={{ width: "100%", height: "100%" }}>
               <div>
@@ -97,6 +102,7 @@ const HomePage = () => {
         </div>
         <div className="center">
           <div className="progress">
+            {/* Progress is displayed Using this */}
             <div className="progress-title">
               <span>
                 <h2>{userData.name} - Progress</h2>
@@ -139,7 +145,9 @@ const HomePage = () => {
             </div>
           </div>
         </div>
-        <div><Leaderboard/></div>
+        <div> 
+          {/* Rendering the LeaderBoard Component Here */}
+          <Leaderboard/></div>
       </div>
     </div>
   );

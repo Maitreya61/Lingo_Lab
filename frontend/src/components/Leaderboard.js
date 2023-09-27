@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const Leaderboard = () => {
-  const [users, setUsers] = useState([]); // Store user data from the server
-  const selectedLanguage = localStorage.getItem('language'); // Get the language from localStorage
+  const [users, setUsers] = useState([]);
+  const selectedLanguage = localStorage.getItem('language');
   const [topUsers, setTopUsers] = useState([]); // Store top 10 users for the selected language
 
   useEffect(() => {

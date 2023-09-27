@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate} from "react-router-dom";
 
 const Home = () => {
-
+  //Used for Navigating through the components
   const navigate = useNavigate();
   const handleClick = ()=>{
     navigate('/register')

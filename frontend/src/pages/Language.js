@@ -3,6 +3,7 @@ import {useNavigate} from 'react-router-dom'
 
 const Language = () => {
 
+  //We are keeping the track of the language using Local Storage for the simplicity 
   let selected;
     const language = localStorage.getItem('language');
     if(language){
@@ -19,6 +20,7 @@ const Language = () => {
     const navigate = useNavigate();
   return (
     <div className='lang-sel-container'>
+      {/* Language Selection menu */}
       <div className='lang-sel'>
         {selected ? '' : <h1>Lets Get Started!</h1>}
         <div><h1>Choose an Language</h1></div>

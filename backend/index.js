@@ -8,15 +8,15 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}))
-app.use(cors());
+app.use(cors());//For CORS error
 app.use('/api', userRoutes);
 
 
-
+//Connecting to database
 mongoose.connect(process.env.MONGODB_URI,{
     useNewUrlParser: true,
     useUnifiedTopology: true,
 }).then(()=>console.log("Connected to database"))
 
-
-app.listen(3001, ()=> console.log("Server Started"));
+//Starting the server
+app.listen(3001 || process.env.PORT, ()=> console.log("Server Started"));

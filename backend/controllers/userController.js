@@ -65,10 +65,8 @@ const userDetails = async (req, res) => {
       const user = await UserModel.findById(userID);
   
       if (!user) {
-        // Set a 404 status code to indicate that the user doesn't exist
         res.status(404).json({ error: 'User does not exist' });
       } else {
-        // Send the user details as JSON response
         res.json({
           name: user.name,
           score: user.score,
@@ -76,7 +74,6 @@ const userDetails = async (req, res) => {
         });
       }
     } catch (error) {
-      // Handle any unexpected errors
       console.error(error);
       res.status(500).json({ error: 'Internal server error' });
     }
@@ -96,7 +93,6 @@ const userDetails = async (req, res) => {
         return res.status(404).json({ error: 'User not found' });
       }
       
-      // Increment the specific score value for the specified language
       user.score[language] += updatedScore;
       user.solvedQuestions.push(...solved);
       
@@ -115,7 +111,7 @@ const userDetails = async (req, res) => {
       // Find all users and project only the name and score fields
       const users = await UserModel.find({}, 'name score');
   
-      res.json(users); // Send the users' names and scores as JSON response
+      res.json(users); // Send the users' names and scores
     } catch (error) {
       console.error('Error fetching users:', error);
       res.status(500).json({ error: 'Internal server error' });

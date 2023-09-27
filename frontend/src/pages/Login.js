@@ -5,7 +5,7 @@ import axios from "axios";
 const Login = () => {
   const navigate = useNavigate();
   const language = localStorage.getItem('language')
-
+  //These are used for getting and setting the email and password 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -19,9 +19,9 @@ const Login = () => {
       if (response.data.message === "Auth") {
         localStorage.setItem("id", response.data.id);
         if (!language || language==null) {
-          navigate("/language");
+          navigate("/language");//If they are new user it takes to select language page first
         } else {
-          navigate("/homepage");
+          navigate("/homepage");//If they are existing user it takes directly to homepage
         }
       } else {
         console.log("error");
@@ -33,6 +33,7 @@ const Login = () => {
 
   return (
     <div className="register">
+      {/* Login and Register Form has same style so reused the same style */}
       <div className="title-mascot">
         <div>
           <h1 className="title">LingoLab</h1>
