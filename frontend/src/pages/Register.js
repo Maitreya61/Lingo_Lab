@@ -39,9 +39,9 @@ const Register = () => {
           <span className="register-title">Register</span>
           <span className="register-subtitle">Create a free account with your email.</span>
           <div className="register-form-container">
-            <input type="text" className="register-input" placeholder="Full Name" onChange={(e)=>setName(e.target.value)}/>
-            <input type="email" className="register-input" placeholder="Email" onChange={(e)=>setEmail(e.target.value)}/>
-            <input type="password" className="register-input" placeholder="Password" onChange={(e)=>setPassword(e.target.value)} />
+            <input type="text" className="register-input" placeholder="Full Name" required={true} onChange={(e)=>setName(e.target.value)}/>
+            <input type="email" className="register-input" placeholder="Email" required={true} onChange={(e)=>setEmail(e.target.value)}/>
+            <input type="password" className="register-input" placeholder="Password" required={true} onChange={(e)=>setPassword(e.target.value)} />
           </div>
           <button type="submit">Register</button>
         </form>

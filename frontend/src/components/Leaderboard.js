@@ -8,7 +8,7 @@ const Leaderboard = () => {
   const [topUsers, setTopUsers] = useState([]); // Store top 10 users for the selected language
 
   useEffect(() => {
-    // Fetch user data from the server
+    // Fetch the user data from the server 
     axios.get('https://lingo-lab.vercel.app/api/leaderboard')
       .then((response) => {
         setUsers(response.data);
