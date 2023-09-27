@@ -16,7 +16,7 @@ const HomePage = () => {
   //Fetching The Data of the User
   useEffect(() => {
     const userID = localStorage.getItem('id');
-    axios.get(`http://localhost:3001/api/users/${userID}`)
+    axios.get(`https://lingo-lab.vercel.app/api/users/${userID}`)
       .then((response) => {
         setUserData(response.data);
       });

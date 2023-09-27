@@ -11,7 +11,7 @@ const Register = () => {
    const onSubmit= async(e)=>{
     e.preventDefault();
     try{
-      const response = await axios.post('http://localhost:3001/api/register', {
+      const response = await axios.post('https://lingo-lab.vercel.app/api/register', {
         name: name,
         email: email,
         password: password

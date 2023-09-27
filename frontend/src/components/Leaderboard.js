@@ -4,11 +4,12 @@ import axios from 'axios';
 const Leaderboard = () => {
   const [users, setUsers] = useState([]);
   const selectedLanguage = localStorage.getItem('language');
+  const Language = selectedLanguage[0].toUpperCase() + selectedLanguage.substring(1);
   const [topUsers, setTopUsers] = useState([]); // Store top 10 users for the selected language
 
   useEffect(() => {
     // Fetch user data from the server
-    axios.get('http://localhost:3001/api/leaderboard')
+    axios.get('https://lingo-lab.vercel.app/api/leaderboard')
       .then((response) => {
         setUsers(response.data);
       })
@@ -29,7 +30,7 @@ const Leaderboard = () => {
     <div>
     <div className="leaderboard">
       <div>
-        <h2>Leaderboard ({selectedLanguage})</h2>
+        <h2>Leaderboard ({Language})</h2>
       </div>
       {topUsers.map((user, index) => (
         <div key={user.name} className={`rank-${index + 1} leaderboard-list`}>

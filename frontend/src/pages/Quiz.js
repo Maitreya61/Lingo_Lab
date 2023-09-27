@@ -23,7 +23,7 @@ function Quiz() {
   //To get the completed questions by the user
   useEffect(() => {
     const userID = localStorage.getItem('id');
-    axios.get(`http://localhost:3001/api/users/${userID}`)
+    axios.get(`https://lingo-lab.vercel.app/api/users/${userID}`)
       .then((response) => {
         setUserData(response.data);
         const filteredQuiz = langquiz.filter((ques) => !userData.solvedQuestions.includes(ques.id));
@@ -34,7 +34,7 @@ function Quiz() {
   //For Updating the score after completing the quiz and also update the completed questions list
   const handleScoreUpdate = () => {
     axios
-      .put(`http://localhost:3001/api/update/${userID}/scores/${language}`, { scoreIncrement: score, solved:compQues })
+      .put(`https://lingo-lab.vercel.app/api/update/${userID}/scores/${language}`, { scoreIncrement: score, solved:compQues })
       .then((response) => {
         console.log(`Score updated successfully`);
       })
